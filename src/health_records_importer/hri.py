@@ -4,6 +4,7 @@ __license__ = 'GNU GPLv3'
 import click
 import sys
 
+
 @click.group()
 @click.option('-f', '--filename', type=click.Path(exists=True))
 @click.option('-c', '--config', type=click.Path(exists=True))
@@ -17,10 +18,12 @@ def cli(ctx, filename, config, quiet):
             ctx.obj['config'] = yaml.load(file, Loader=yaml.FullLoader)
     ctx.obj['quiet'] = quiet
 
+
 @click.command('version')
 @click.pass_context
 def version_cmd(ctx):
     print('not implemented')
+
 
 cli.add_command(version_cmd)
 
