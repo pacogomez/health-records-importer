@@ -2,7 +2,7 @@ __copyright__ = 'Copyright (C) 2021 Paco Gomez'
 __license__ = 'GNU GPLv3'
 
 import click
-import sys
+import yaml
 
 
 @click.group()
@@ -22,7 +22,8 @@ def cli(ctx, filename, config, quiet):
 @click.command('version')
 @click.pass_context
 def version_cmd(ctx):
-    print('not implemented')
+    cfg = ctx.obj['config']
+    print(cfg)
 
 
 cli.add_command(version_cmd)
